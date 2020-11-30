@@ -8,6 +8,9 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
+  const routes = require('./routes')
+
+  server.use('/api', routes(server))
 
   server.get('/a', (req, res) => {
     return app.render(req, res, '/a', req.query)
