@@ -8,17 +8,6 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = express()
-  const routes = require('./routes')
-
-  server.use('/api', routes())
-
-  server.get('/a', (req, res) => {
-    return app.render(req, res, '/a', req.query)
-  })
-
-  server.get('/b', (req, res) => {
-    return app.render(req, res, '/b', req.query)
-  })
 
   server.all('*', (req, res) => {
     return handle(req, res)
