@@ -10,7 +10,7 @@ app.prepare().then(() => {
   const server = express()
   const routes = require('./routes')
 
-  server.use('/api', routes(server))
+  server.use('/api', routes())
 
   server.get('/a', (req, res) => {
     return app.render(req, res, '/a', req.query)
